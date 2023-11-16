@@ -2,9 +2,9 @@
 {
     using Aplication.Interfaces;
     using Aplication.Services;
+    using AppTransaction.Infraestruture.Contexts;
     using Domain.Interfaces.Repository;
-    using Infraestruture.Datos.Contexts;
-    using Infraestruture.Datos.Contexts.Repositorys;
+    using Infraestruture.Repositories;
     using Microsoft.EntityFrameworkCore;
 
     public static class ServicesExtensions

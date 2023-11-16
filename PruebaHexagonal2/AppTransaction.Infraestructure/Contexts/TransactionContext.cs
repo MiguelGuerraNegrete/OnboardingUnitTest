@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using AppTransaction.Domain;
 
-namespace AppTransaction.Infraestruture.Datos.Contexts
+namespace AppTransaction.Infraestruture.Contexts
 {
     public class TransactionContext : DbContext
     {
