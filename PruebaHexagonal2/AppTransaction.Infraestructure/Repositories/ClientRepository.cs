@@ -1,8 +1,9 @@
 ﻿using AppTransaction.Domain;
 using AppTransaction.Domain.Interfaces.Repository;
+using AppTransaction.Infraestruture.Contexts;
 using Microsoft.EntityFrameworkCore;
 
-namespace AppTransaction.Infraestruture.Datos.Contexts.Repositorys
+namespace AppTransaction.Infraestruture.Repositories
 {
     public class ClientRepository : IClientRepository
     {

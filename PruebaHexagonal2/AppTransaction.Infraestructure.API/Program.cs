@@ -1,4 +1,4 @@
-using AppTransaction.Infraestruture.Datos.Contexts;
+using AppTransaction.Infraestruture.Contexts;
 using AppTransaction.Infrastructure.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
