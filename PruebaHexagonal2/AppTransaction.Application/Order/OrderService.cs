@@ -15,7 +15,11 @@ namespace AppTransaction.Aplication.Services
 
         public async Task<IEnumerable<Order>> GetAsync() => await _repositoryOrder.GetAsync();
 
-        public async Task<Order> GetByAsync(Guid id) => await _repositoryOrder.GetByAsync(id);
+        public async Task<Order> GetByAsync(Guid orderid)
+        {
+            var currentOrder = await _repositoryOrder.GetByIdAsync(orderid);
+            return currentOrder ?? throw new Exception($"Id {orderid} NOT FOUND");
+        }
 
         public async Task SaveAsync(Order order)
         {

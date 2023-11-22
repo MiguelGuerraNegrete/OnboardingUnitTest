@@ -16,7 +16,7 @@ namespace AppTransaction.Infraestruture.Repositories
 
         public async Task<IEnumerable<Order>> GetAsync() => await _context.Orders.ToListAsync();
 
-        public async Task<Order> GetByAsync(Guid id) => await _context.Orders.FindAsync(id);
+        public async Task<Order> GetByIdAsync(Guid id) => await _context.Orders.FindAsync(id);
 
         public async Task SaveAsync(Order order)
         {

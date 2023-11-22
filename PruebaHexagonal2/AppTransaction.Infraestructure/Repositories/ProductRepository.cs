@@ -16,7 +16,7 @@ namespace AppTransaction.Infraestruture.Repositories
 
         public async Task<IEnumerable<Product>> GetAsync() => await _context.Products.ToListAsync();
 
-        public async Task<Product> GetByAsync(Guid productId) => await _context.Products.FindAsync(productId);
+        public async Task<Product> GetByIdAsync(Guid productId) => await _context.Products.FindAsync(productId);
 
         public async Task SaveAsync(Product product)
         {
