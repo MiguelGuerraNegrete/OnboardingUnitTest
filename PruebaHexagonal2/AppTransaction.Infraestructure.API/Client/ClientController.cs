@@ -17,25 +17,22 @@ namespace AppTransaction.Infraestructure.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAsync(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAsync( )
         {
-            await Task.Delay(2000, cancellationToken);
             var allClients = await _clientService.GetAsync();
             return Ok(allClients);
         }
 
         [HttpGet("{clientId}")]
-        public async Task<IActionResult> GetByID(Guid clientId , CancellationToken cancellationToken)
+        public async Task<IActionResult> GetByID(Guid clientId)
         {
-            await Task.Delay(2000, cancellationToken);
             var ExpectedClient = await _clientService.GetByIdAsync(clientId);
             return Ok(ExpectedClient);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Client client, CancellationToken cancellationToken)
+        public async Task<IActionResult> Post([FromBody] Client client)
         {
-            await Task.Delay(2000, cancellationToken);
             await _clientService.SaveAsync(client);
             return Ok("Added client");
         }

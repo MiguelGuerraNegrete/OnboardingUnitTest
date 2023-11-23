@@ -51,7 +51,7 @@ namespace AppTransaction.InfraestructureTest
 
             //Assert
 
-            Assert.Equal(2, products.Count());
+            Assert.Single(products);
         }
 
         //[Fact]

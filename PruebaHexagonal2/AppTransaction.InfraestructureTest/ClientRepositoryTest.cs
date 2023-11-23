@@ -12,16 +12,11 @@ namespace AppTransaction.InfraestructureTest
 
         public ClientDataBaseFixture()
         {
-            var clientId = Guid.NewGuid();
-
             var options = new DbContextOptionsBuilder<TransactionContext>()
             .UseInMemoryDatabase(databaseName: "ClientDatabase")
             .Options;
 
             TransactionContext = new TransactionContext(options);
-
-            TransactionContext.Clients.Add(new Client { ClientId = clientId, Identification = "m5", Name = "Juan", AvailableBalance = 200 });
-            TransactionContext.SaveChanges();
         }
 
         public void Dispose() => TransactionContext.Dispose();
@@ -46,7 +41,7 @@ namespace AppTransaction.InfraestructureTest
 
             //Assert
 
-            Assert.Single(clients);
+            Assert.Single(clients); 
         }
 
         [Fact]

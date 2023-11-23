@@ -11,14 +11,9 @@ namespace AppTransaction.InfraestructureTest
 
         public OrderDataBaseFixture()
         {
-            var orderId = Guid.NewGuid();
-
             var options = new DbContextOptionsBuilder<TransactionContext>().UseInMemoryDatabase("OrderDatabase").Options;
 
             TransactionbdContext = new TransactionContext(options);
-
-            TransactionbdContext.Orders.Add(new Order { OrderId = orderId, Units = 10, ProductValue = 1000, Total = 10000 });
-            TransactionbdContext.SaveChanges();
         }
 
         public void Dispose() => TransactionbdContext.Dispose();
@@ -43,7 +38,7 @@ namespace AppTransaction.InfraestructureTest
 
             //Assert
 
-            Assert.Equal(2, orders.Count());
+            Assert.Single(orders);
         }
 
         [Fact]
