@@ -3,7 +3,7 @@
     public interface IOrderRepository
     {
         Task<IEnumerable<Order>> GetAsync();
-        Task<Order> GetByAsync(Guid orderId);
+        Task<Order> GetByIdAsync(Guid orderId);
         Task SaveAsync(Order order);
     }
 }

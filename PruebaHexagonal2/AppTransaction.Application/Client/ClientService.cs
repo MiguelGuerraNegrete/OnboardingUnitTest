@@ -13,9 +13,22 @@ namespace AppTransaction.Aplication.Services
             _clientRepository = clientRepository;
         }
 
-        public async Task<IEnumerable<Client>> GetAsync() => await _clientRepository.GetAsync();
+        public async Task<IEnumerable<Client>> GetAsync()
+        {
+            var clients = await _clientRepository.GetAsync();
 
-        public async Task<Client> GetByIdAsync(Guid clientId) => await _clientRepository.GetByIdAsync(clientId);
+            if (clients == null || !clients.Any())
+            {
+               return new List<Client>();
+            }
+            return clients;
+        }
+            
+        public async Task<Client> GetByIdAsync(Guid clientId) 
+        {
+            var currentCLient = await _clientRepository.GetByIdAsync(clientId);
+            return currentCLient ?? throw new Exception($"Id {clientId} NOT FOUND");
+        }
 
         public async Task SaveAsync(Client client)
         {
