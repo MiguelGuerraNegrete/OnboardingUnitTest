@@ -19,7 +19,7 @@
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddDbContext<TransactionContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<TransactionContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
         }
     }
 }
